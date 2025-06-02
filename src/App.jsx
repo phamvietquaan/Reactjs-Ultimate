@@ -16,10 +16,17 @@ const App = () => {
     country: "VietNam",
     University: "IUH"
   }
-  const addNewTodo = () => {
-    alert("call me back");
+  const addNewTodo = (name) => {
+    const newTodo = {
+      id: randomIntFromInterval(1, 100),
+      name: name
+    }
+    setTodoList([...todoList, newTodo])
   }
-  addNewTodo()
+  const randomIntFromInterval = (min, max) => { // min and max included 
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
+
   return (
     <div className="todo-container">
       <div className="todo-title">Todo List</div>
